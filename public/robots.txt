@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://raskin.me/sitemap-index.xml

@@ -1,0 +1,29 @@
+---
+import { H1, H2, Link, List, ListItem, Text } from '@/components'
+import { constants } from '@/config'
+import Page from '@/layouts/page.astro'
+---
+
+<Page
+  title="Projects | Perry Raskin"
+  description="Some personal projects and tools"
+  keywords="projects, tools, web, software, development"
+  image="/images/cover.png"
+  type="website"
+>
+  <H1>Projects</H1>
+  <Text class="opacity-70">Some personal projects and tools</Text>
+
+  <H2>Personal</H2>
+  <List class="list-none">
+    {
+      constants.projects.map(({ name, description, link, using, icon }) => (
+        <ListItem>
+          {icon && <img src={icon} alt="Lunch mini" class="mr-2 inline h-8 w-8 rounded-full shadow-lg" />}
+          <Link href={link}>{name}</Link> — <span>{description}&ensp;</span>
+          <Text class="inline text-sm leading-relaxed opacity-70">{using?.join(', ')}</Text>
+        </ListItem>
+      ))
+    }
+  </List>
+</Page>
