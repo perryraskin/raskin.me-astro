@@ -1268,6 +1268,13 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.45.tgz#2c0fafd78705e7a18b7906b5201a522719dc5190"
   integrity sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==
 
+"@types/node@^20.12.12":
+  version "20.12.12"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.12.12.tgz#7cbecdf902085cec634fdb362172dfe12b8f2050"
+  integrity sha512-eWLDGF/FOSPtAvEqeRAQ4C8LSA7M1I7i0ky1I8U7kD1J5ITyW3AsRhQrKVoWf5pFKZ2kILsEGJhsI9r93PYnOw==
+  dependencies:
+    undici-types "~5.26.4"
+
 "@types/prismjs@^1.0.0":
   version "1.26.4"
   resolved "https://registry.yarnpkg.com/@types/prismjs/-/prismjs-1.26.4.tgz#1a9e1074619ce1d7322669e5b46fbe823925103a"
@@ -1753,6 +1760,11 @@ astro-eslint-parser@^0.16.3:
     eslint-visitor-keys "^3.0.0"
     espree "^9.0.0"
     semver "^7.3.8"
+
+astro-font@^0.0.81:
+  version "0.0.81"
+  resolved "https://registry.yarnpkg.com/astro-font/-/astro-font-0.0.81.tgz#cf0a4523129d426f2986b1a580197e3889e5176e"
+  integrity sha512-VmK4kqzNpOAt2LASVbw2cbbe9sD6K30E7jOjqzHxHieHMTWInkdOljtzHmNGvKr3P0MeF4Wy+Z7j6CdETFecDA==
 
 astro@^4.4.14:
   version "4.8.2"
