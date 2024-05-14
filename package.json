@@ -24,6 +24,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "@commitlint/cli": "^19.0.3",
     "@commitlint/config-conventional": "^19.0.3",
+    "@types/node": "^20.12.12",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
     "astro": "^4.4.14",
@@ -45,6 +46,7 @@
     "typescript": "^5.4.2"
   },
   "dependencies": {
+    "astro-font": "^0.0.81",
     "dayjs": "^1.11.11"
   }
 }

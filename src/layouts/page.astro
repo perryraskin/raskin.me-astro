@@ -1,8 +1,9 @@
 ---
 import '@/styles/colors.css'
-import '@/styles/global.css'
 import '@/styles/syntax.css'
 import '@/styles/layers.css'
+import { join } from "node:path";
+import { AstroFont } from "astro-font";
 
 import { constants } from '@/config'
 import { Theme } from '@/icons'
@@ -51,7 +52,24 @@ const props = Astro.props as Props
     <meta name="twitter:image" content={constants.site + props.image} />
     <meta name="twitter:image:alt" content={props.title} />
     {props.date ? <meta property="article:published_time" content={new Date(props.date).toISOString()} /> : null}
-    <link rel="preload" type="font/woff2" href="/fonts/ibm-plex-var.woff2" as="font" crossorigin="anonymous" />
+    <AstroFont
+      config={[
+        {
+          name: "IBM",
+          src: [
+            {
+              style: 'normal',
+              weight: '100 900',
+              path: join(process.cwd(), 'public', 'fonts', 'ibm-plex-var.woff2')
+            },
+          ],
+          preload: true,
+          display: "swap",
+          fallback: "sans-serif",
+          cssVariable: "font-ibm",
+        },
+      ]}
+    />
     <link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="canonical" href={constants.site + Astro.url.pathname} />
