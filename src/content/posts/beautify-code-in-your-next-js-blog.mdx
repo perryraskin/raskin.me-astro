@@ -1,7 +1,7 @@
 ---
-title: 'Beautify code in your Next.js blog'
+title: "Beautify code in your Next.js blog"
 date: March 4, 2020
-tags: [personal]
+tags: [nextjs, tailwindcss, highlightjs]
 description: After some trial and error, I styled custom code blocks using Highlight.js and  TailwindCSS
 ---
 
@@ -36,8 +36,8 @@ Notice that this code simply applies a title, date, and the contents of the `.md
 First and foremost, make sure you have your imports for highlight.js. You can choose any theme from the `/styles` folder that's provided.
 
 ```javascript
-import Highlight from 'react-highlight'
-import '../../node_modules/highlight.js/styles/nord.css'
+import Highlight from "react-highlight"
+import "../../node_modules/highlight.js/styles/nord.css"
 ```
 
 After **a lot** of trial and error, I realized I needed to create a custom component to pass to `renderers`. I'm sure there are other ways to do this, but this made the most sense to me, and it worked quite nicely.

@@ -1,7 +1,7 @@
 ---
-title: 'Quick Start: Next.js and Plaid to pull financial data'
+title: "Quick Start: Next.js and Plaid to pull financial data"
 date: March 14, 2020
-tags: [personal]
+tags: [nextjs, plaid, financial]
 description: Your guide to getting started with Plaid in a Next.js app
 ---
 
@@ -28,9 +28,9 @@ Notice our API routes in `/pages/api`. Next.js automatically handles routing for
 Let's take a look at the API in `/pages/api/plaid/index.js`. First we need to import `next-connect,` which will allow us to utilize the Next.js request handler. In our case, we will be sending a `POST` request. Then of course we'll need `plaid` for connecting to Plaid's API, and `moment` to do work with a few dates.
 
 ```typescript
-import nextConnect from 'next-connect'
-import plaid from 'plaid'
-import moment from 'moment'
+import nextConnect from "next-connect"
+import plaid from "plaid"
+import moment from "moment"
 ```
 
 Next, we need to initialize some variables. As our `.env` file defines the API tokens received from Plaid, I defined them here. These are used to create the Plaid client object, which allows us to exchange keys and grab transactions as will be seen later in the file.
@@ -46,8 +46,8 @@ var ITEM_ID = null
 
 // Initialize the Plaid client
 export const client = new plaid.Client(PLAID_CLIENT_ID, PLAID_SECRET, PLAID_PUBLIC_KEY, plaid.environments[PLAID_ENV], {
-  version: '2019-05-29',
-  clientApp: 'Plaid Quickstart',
+  version: "2019-05-29",
+  clientApp: "Plaid Quickstart",
 })
 
 const handler = nextConnect()
@@ -65,7 +65,7 @@ Upon a successful response, we will receive the following JSON:
 ```typescript
 res.json({
   ok: true,
-  message: 'Success!',
+  message: "Success!",
   access_token: ACCESS_TOKEN,
   item_id: ITEM_ID,
   transactions: transactions,
@@ -89,7 +89,7 @@ That's it! We're basically just declaring a variable along with a matching sette
 function handleOnSuccess(public_token: any, metadata: any) {
   // send token to client server
   fetchSwal
-    .post('/api/plaid', {
+    .post("/api/plaid", {
       public_token: public_token,
       metadata: metadata,
     })
@@ -107,7 +107,7 @@ We will then print the transactions to the dev console (in Chrome, for example) 
 
 ```typescript
 function handleClick(res: any) {
-  console.log('transactions:', transactions)
+  console.log("transactions:", transactions)
 }
 ```
 
