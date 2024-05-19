@@ -165,7 +165,7 @@ const props = Astro.props as Props
             if (mutation.attributeName === "style") {
               const isVisible = successResponse.style.display !== "none"
               if (isVisible) {
-                const isDarkTheme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+                const isDarkTheme = localStorage.getItem("theme") === "dark"
                 successResponse.style.color = isDarkTheme ? "white" : "black"
                 emailInputWrapper.style.display = "none"
                 subscribeButton.style.display = "none"

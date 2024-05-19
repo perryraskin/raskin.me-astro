@@ -1,7 +1,8 @@
-import type { Config } from "tailwindcss"
+import { type Config } from "tailwindcss"
+import { fontFamily } from "tailwindcss/defaultTheme"
 
 const config = {
-  darkMode: ["class"],
+  darkMode: "media",
   content: ["src/**/*.{astro,md,mdx,js,ts,jsx,tsx}"],
   prefix: "",
   theme: {
@@ -13,6 +14,15 @@ const config = {
       },
     },
     extend: {
+      colors: {
+        default: "var(--default)",
+        primary: "var(--primary)",
+        // neutral: "var(--neutral)",
+        surface: "var(--surface)",
+        elevate: "var(--elevate)",
+        element: "var(--element)",
+        comment: "var(--comment)",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -27,6 +37,15 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+    },
+    fontFamily: {
+      sans: ["IBM Plex Sans", ...fontFamily.sans],
+    },
+    minHeight: {
+      xs: "20rem",
+      sm: "40rem",
+      md: "48rem",
+      lg: "64rem",
     },
   },
   plugins: [require("tailwindcss-animate")],
