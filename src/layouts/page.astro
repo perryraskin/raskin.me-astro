@@ -1,12 +1,12 @@
 ---
-import '@/styles/colors.css'
-import '@/styles/global.css'
-import '@/styles/syntax.css'
-import '@/styles/layers.css'
+import "@/styles/colors.css"
+import "@/styles/global.css"
+import "@/styles/syntax.css"
+import "@/styles/layers.css"
 
-import { constants } from '@/config'
-import { Theme } from '@/icons'
-import dayjs from 'dayjs'
+import { constants } from "@/config"
+import { Theme } from "@/icons"
+import dayjs from "dayjs"
 
 type Props = {
   title: string
@@ -56,6 +56,7 @@ const props = Astro.props as Props
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="canonical" href={constants.site + Astro.url.pathname} />
     <title>{props.title}</title>
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body class="overflow-y-scroll bg-surface text-default selection:bg-default selection:text-surface">
@@ -107,25 +108,74 @@ const props = Astro.props as Props
     </section>
 
     <script is:inline>
-      if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js')
+      if ("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js")
 
       const theme = {
         initial: () => {
-          if (localStorage.getItem('theme')) return localStorage.getItem('theme')
-          if (matchMedia('(prefers-color-scheme: dark)').matches) return 'dark'
-          return 'light'
+          if (localStorage.getItem("theme")) return localStorage.getItem("theme")
+          if (matchMedia("(prefers-color-scheme: dark)").matches) return "dark"
+          return "light"
         },
-        current: () => document.documentElement.getAttribute('color-scheme'),
+        current: () => document.documentElement.getAttribute("color-scheme"),
         set: (theme) => {
-          document.documentElement.setAttribute('color-scheme', theme)
-          localStorage.setItem('theme', theme)
+          document.documentElement.setAttribute("color-scheme", theme)
+          localStorage.setItem("theme", theme)
         },
       }
 
       theme.set(theme.initial())
-      const toggle = () => theme.set(theme.current() === 'light' ? 'dark' : 'light')
+      const toggle = () => theme.set(theme.current() === "light" ? "dark" : "light")
 
-      document.querySelector('#toggle-theme')?.addEventListener('click', toggle)
+      document.querySelector("#toggle-theme")?.addEventListener("click", toggle)
+
+      // Listen for changes in the user's preferred color scheme
+      matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+        theme.set(e.matches ? "dark" : "light")
+      })
+    </script>
+    <!-- MAILCHIMP -->
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+    <script type="text/javascript">
+      ;(function ($) {
+        window.fnames = new Array()
+        window.ftypes = new Array()
+        fnames[0] = "EMAIL"
+        ftypes[0] = "email"
+        fnames[1] = "FNAME"
+        ftypes[1] = "text"
+        fnames[2] = "LNAME"
+        ftypes[2] = "text"
+        fnames[3] = "ADDRESS"
+        ftypes[3] = "address"
+        fnames[4] = "PHONE"
+        ftypes[4] = "phone"
+        fnames[5] = "BIRTHDAY"
+        ftypes[5] = "birthday"
+      })(jQuery)
+      var $mcj = jQuery.noConflict(true)
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const successResponse = document.getElementById("mce-success-response")
+        const emailInputWrapper = document.getElementById("mc--email-input-wrapper")
+        const subscribeButton = document.querySelector('button[name="subscribe"]')
+
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            if (mutation.attributeName === "style") {
+              const isVisible = successResponse.style.display !== "none"
+              if (isVisible) {
+                const isDarkTheme = localStorage.getItem("theme") === "dark"
+                successResponse.style.color = isDarkTheme ? "white" : "black"
+                emailInputWrapper.style.display = "none"
+                subscribeButton.style.display = "none"
+              }
+            }
+          })
+        })
+
+        observer.observe(successResponse, { attributes: true })
+      })
     </script>
   </body>
 </html>

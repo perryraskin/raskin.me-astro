@@ -1,30 +1,54 @@
-import { type Config } from 'tailwindcss'
-import { fontFamily } from 'tailwindcss/defaultTheme'
+import { type Config } from "tailwindcss"
+import { fontFamily } from "tailwindcss/defaultTheme"
 
-export default {
-  content: ['src/**/*.{astro,md,mdx,js,ts,jsx,tsx}'],
-  darkMode: 'media',
+const config = {
+  darkMode: "media",
+  content: ["src/**/*.{astro,md,mdx,js,ts,jsx,tsx}"],
+  prefix: "",
   theme: {
-    extend: {
-      colors: {
-        default: 'var(--default)',
-        primary: 'var(--primary)',
-        neutral: 'var(--neutral)',
-        surface: 'var(--surface)',
-        elevate: 'var(--elevate)',
-        element: 'var(--element)',
-        comment: 'var(--comment)',
-      },
-      fontFamily: {
-        sans: ['IBM Plex Sans', ...fontFamily.sans],
-      },
-      minHeight: {
-        xs: '20rem',
-        sm: '40rem',
-        md: '48rem',
-        lg: '64rem',
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
       },
     },
+    extend: {
+      colors: {
+        default: "var(--default)",
+        primary: "var(--primary)",
+        // neutral: "var(--neutral)",
+        surface: "var(--surface)",
+        elevate: "var(--elevate)",
+        element: "var(--element)",
+        comment: "var(--comment)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
+    },
+    fontFamily: {
+      sans: ["IBM Plex Sans", ...fontFamily.sans],
+    },
+    minHeight: {
+      xs: "20rem",
+      sm: "40rem",
+      md: "48rem",
+      lg: "64rem",
+    },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 } satisfies Config
+
+export default config

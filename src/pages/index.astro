@@ -1,12 +1,13 @@
 ---
-import { getCollection } from 'astro:content'
+import { getCollection } from "astro:content"
 
-import { Link, List, ListItem } from '@/components'
-import { constants } from '@/config'
-import { Email, GitHub, Twitter } from '@/icons'
-import Page from '@/layouts/page.astro'
+import { Link, List, ListItem } from "@/components/solid"
+import { constants } from "@/config"
+import { Email, GitHub, Twitter } from "@/icons"
+import Page from "@/layouts/page.astro"
+import Subscribe from "@/components/react/Subscribe"
 
-const posts = (await getCollection('posts')).sort((a, z) => +new Date(z.data.date) - +new Date(a.data.date))
+const posts = (await getCollection("posts")).sort((a, z) => +new Date(z.data.date) - +new Date(a.data.date))
 ---
 
 <Page
@@ -29,7 +30,7 @@ const posts = (await getCollection('posts')).sort((a, z) => +new Date(z.data.dat
 
   <section class="mt-14 space-y-2">
     <p class="text-xl font-normal leading-loose sm:leading-loose">
-      I'm leading the Web & Integrations front at{' '}
+      I'm leading the Web & Integrations front at{" "}
       <Link target="_blank" href="https://www.coverdash.com"> Coverdash </Link>
       .
     </p>
@@ -39,10 +40,10 @@ const posts = (await getCollection('posts')).sort((a, z) => +new Date(z.data.dat
     {
       false && (
         <p class="text-xl font-normal leading-loose sm:leading-loose">
-          Currently, I'm working on{' '}
+          Currently, I'm working on{" "}
           <Link target="_blank" href="https://www.inviteable.app">
-            {' '}
-            Inviteable{' '}
+            {" "}
+            Inviteable{" "}
           </Link>
           , an event-planning tool for a gathering of any size (in person or online).
         </p>
@@ -50,21 +51,97 @@ const posts = (await getCollection('posts')).sort((a, z) => +new Date(z.data.dat
     }
 
     <section class="mt-12 space-x-2">
-      <Link href={constants.profile.links.email} classList={{ ['text-default']: true }} aria-label="Email">
+      <Link href={constants.profile.links.email} classList={{ ["text-default"]: true }} aria-label="Email">
         <Email />
       </Link>
 
-      <Link href={constants.profile.links.github} classList={{ ['text-default']: true }} aria-label="GitHub">
+      <Link href={constants.profile.links.github} classList={{ ["text-default"]: true }} aria-label="GitHub">
         <GitHub />
       </Link>
 
-      <Link href={constants.profile.links.twitter} classList={{ ['text-default']: true }} aria-label="Twitter">
+      <Link href={constants.profile.links.twitter} classList={{ ["text-default"]: true }} aria-label="Twitter">
         <Twitter />
       </Link>
     </section>
 
+    <form
+      action="https://raskin.us19.list-manage.com/subscribe/post?u=215db57bccd5e8ac098d96353&id=51e8db47ba&f_id=008d42e4f0"
+      method="post"
+      id="mc-embedded-subscribe-form"
+      name="mc-embedded-subscribe-form"
+      class="validate"
+      target="_blank"
+    >
+      <div
+        class="from-neutral-100 dark:from-neutral-800 dark:to-neutral-900 mt-12 rounded-[24px] border border-white/60 bg-gradient-to-b to-white/70 dark:border-stone-950/60"
+      >
+        <div class="dark:border-neutral-900/80 rounded-[23px] border border-black/10">
+          <div class="dark:border-neutral-950 rounded-[22px] border border-white/50">
+            <div class="border-neutral-950/20 dark:border-neutral-900/70 rounded-[21px] border">
+              <div
+                class="text-neutral-500 dark:border-neutral-700/50 w-full max-w-[440px] rounded-[20px] border border-white/50"
+              >
+                <div class="first:pt-6 last:pb-6">
+                  <div class="flex justify-center p-4">
+                    <h3 class="text-neutral-900 dark:text-neutral-100 text-lg font-semibold leading-tight">
+                      Subscribe to updates from me?
+                    </h3>
+                  </div>
+                </div><div
+                  data-orientation="horizontal"
+                  role="none"
+                  class="h-[1px] w-full shrink-0 bg-slate-200 dark:bg-slate-800"
+                >
+                </div><div id="mc--email-input-wrapper" class="px-6 py-4">
+                  <div class="flex flex-col gap-4">
+                    <label
+                      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      for="email">Email</label
+                    ><input
+                      type="email"
+                      class="border-neutral-300 placeholder-neutral-400 dark:border-neutral-700 dark:bg-neutral-800/80 dark:placeholder-neutral-500 flex h-10 w-full rounded-md border bg-white/80 px-4 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:ring-offset-slate-950 dark:placeholder:text-slate-400 dark:focus-visible:ring-slate-300"
+                      name="EMAIL"
+                      id="mce-EMAIL"
+                      value=""
+                      control-id="ControlID-1"
+                    />
+                  </div>
+                </div><div
+                  data-orientation="horizontal"
+                  role="none"
+                  class="h-[1px] w-full shrink-0 bg-slate-200 dark:bg-slate-800"
+                >
+                </div>
+                <div id="mce-responses" class="clear foot">
+                  <div class="response" id="mce-error-response" style="display: none;"></div>
+                  <div class="response" id="mce-success-response" style="display: none;"></div>
+                </div>
+                <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                  <input type="text" name="b_215db57bccd5e8ac098d96353_51e8db47ba" tabindex="-1" value="" />
+                </div>
+                <div class="flex items-center justify-between gap-2 px-6 py-4">
+                  <button
+                    class="w-full rounded-[12px] border-[1px] border-black/10 bg-gradient-to-b from-black/70 to-black p-[1px] transition duration-300 ease-in-out dark:border-[2px] dark:border-black dark:from-white dark:to-white/80"
+                    type="submit"
+                    name="subscribe"
+                    control-id="ControlID-2"
+                    value="Subscribe"
+                    ><div
+                      class="from-neutral-800 dark:from-neutral-200 dark:to-neutral-50 hover:to-neutral-800/70 dark:hover:to-neutral-200 dark:active:to-neutral-300 flex h-full w-full items-center justify-center gap-2 rounded-[10px] bg-gradient-to-b to-black px-4 py-2 text-sm text-white/90 transition duration-300 ease-in-out hover:from-stone-800 active:bg-gradient-to-b active:from-black active:to-black dark:text-black/80 dark:hover:from-stone-200 dark:active:from-stone-300"
+                    >
+                      <span>Subscribe</span>
+                    </div></button
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
     <section class="mb-16">
-      <h2 class="mt-28 text-2xl font-bold">Recent posts</h2>
+      <h2 class="mt-20 text-2xl font-bold">Recent posts</h2>
       <List class="mt-12">
         {
           posts.slice(0, 3).map((post) => (

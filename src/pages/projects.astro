@@ -1,7 +1,7 @@
 ---
-import { H1, H2, Link, List, ListItem, Text } from '@/components'
-import { constants } from '@/config'
-import Page from '@/layouts/page.astro'
+import { H1, H2, Link, List, ListItem, Text } from "@/components/solid"
+import { constants } from "@/config"
+import Page from "@/layouts/page.astro"
 ---
 
 <Page
@@ -21,7 +21,7 @@ import Page from '@/layouts/page.astro'
         <ListItem>
           {icon && <img src={icon} alt="Lunch mini" class="mr-2 inline h-8 w-8 rounded-full shadow-lg" />}
           <Link href={link}>{name}</Link> — <span>{description}&ensp;</span>
-          <Text class="inline text-sm leading-relaxed opacity-70">{using?.join(', ')}</Text>
+          <Text class="inline text-sm leading-relaxed opacity-70">{using?.join(", ")}</Text>
         </ListItem>
       ))
     }
