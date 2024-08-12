@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://raskin.me</loc>
+  </url>
+<url>
+    <loc>https://raskin.me/blog/self-hosting-a-postgresql-database-on-a-raspberry-pi</loc>
+  </url>
+<url>
+    <loc>https://raskin.me/blog/introducing-audiopen-ai-powered-productivity-tool</loc>
+  </url>
+  <url>
+    <loc>https://raskin.me/blog/beautify-code-in-your-next-js-blog</loc>
+  </url>
+
+  <url>
+    <loc>https://raskin.me/blog/initblog</loc>
+  </url>
+
+  <url>
+    <loc
+      >https://raskin.me/blog/quick-start-next-js-and-plaid-to-pull-financial-data</loc
+    >
+  </url>
+
+  <url>
+    <loc>https://raskin.me/projects</loc>
+  </url>
+</urlset>
