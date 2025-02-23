@@ -1,29 +1,22 @@
-import { ComponentProps, Show } from "solid-js"
+import { ComponentProps } from "react"
 
 const styles = {
-  base: "border-b border-elevate outline-none text-primary",
+  base: "border-b border-black outline-none text-primary hover:border-blue-500 transition-all duration-300 ease-in-out pointer-cursor",
   focus: "ring-primary ring-offset-2 ring-offset-surface focus-visible:ring-1",
 }
 
 export const Link = (props: ComponentProps<"a">) => {
+  if (props.href?.startsWith("/")) {
+    return <a href={props.href} rel="prefetch" {...props} />
+  }
+
   return (
-    <Show
-      when={props.href?.startsWith("/")}
-      fallback={
-        <a
-          classList={{ [styles.base]: true, [styles.focus]: true }}
-          href={props.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          {...props}
-        >
-          {props.children}
-        </a>
-      }
-    >
-      <a href={props.href} rel="prefetch" {...props}>
-        {props.children}
-      </a>
-    </Show>
+    <a
+      className={`${styles.base} ${styles.focus}`}
+      href={props.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      {...props}
+    />
   )
 }

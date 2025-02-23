@@ -1,4 +1,4 @@
-import { ComponentProps } from "solid-js"
+import { ComponentProps } from "react"
 
 const styles = {
   blockquote: "border-l-4 border-elevate pl-4 italic font-medium my-2",
@@ -18,17 +18,17 @@ const styles = {
 type HeadingProps = ComponentProps<"h1">
 
 export const Blockquote = (props: ComponentProps<"blockquote">) => (
-  <blockquote {...{ class: styles.blockquote, ...props }}>{props.children}</blockquote>
+  <blockquote className={styles.blockquote} {...props} />
 )
 
-export const H1 = (props: HeadingProps) => <h1 {...{ class: styles.h1, ...props }}>{props.children}</h1>
-export const H2 = (props: HeadingProps) => <h2 {...{ class: styles.h2, ...props }}>{props.children}</h2>
-export const H3 = (props: HeadingProps) => <h3 {...{ class: styles.h3, ...props }}>{props.children}</h3>
-export const H4 = (props: HeadingProps) => <h4 {...{ class: styles.h4, ...props }}>{props.children}</h4>
-export const H5 = (props: HeadingProps) => <h5 {...{ class: styles.h5, ...props }}>{props.children}</h5>
-export const H6 = (props: HeadingProps) => <h6 {...{ class: styles.h6, ...props }}>{props.children}</h6>
-export const HR = (props: ComponentProps<"hr">) => <hr class={styles.hr} {...props} />
-export const List = (props: ComponentProps<"ul">) => <ul class={styles.list} {...props} />
-export const ListItem = (props: ComponentProps<"li">) => <li class={styles.listItem} {...props} />
-export const Strong = (props: ComponentProps<"strong">) => <strong class={styles.strong} {...props} />
-export const Text = (props: ComponentProps<"p">) => <p class={styles.text} {...props} />
+export const H1 = (props: HeadingProps) => <h1 className={styles.h1} {...props} />
+export const H2 = (props: HeadingProps) => <h2 className={styles.h2} {...props} />
+export const H3 = (props: HeadingProps) => <h3 className={styles.h3} {...props} />
+export const H4 = (props: HeadingProps) => <h4 className={styles.h4} {...props} />
+export const H5 = (props: HeadingProps) => <h5 className={styles.h5} {...props} />
+export const H6 = (props: HeadingProps) => <h6 className={styles.h6} {...props} />
+export const HR = (props: ComponentProps<"hr">) => <hr className={styles.hr} {...props} />
+export const List = (props: ComponentProps<"ul">) => <ul className={styles.list} {...props} />
+export const ListItem = (props: ComponentProps<"li">) => <li className={styles.listItem} {...props} />
+export const Strong = (props: ComponentProps<"strong">) => <strong className={styles.strong} {...props} />
+export const Text = (props: ComponentProps<"p">) => <p className={styles.text} {...props} />
