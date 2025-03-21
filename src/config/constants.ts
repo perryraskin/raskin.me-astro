@@ -34,6 +34,13 @@ export const constants = {
 
   projects: [
     {
+      name: "TipsPls",
+      description: "QR code tipping for servers, freelancers, and street performers.",
+      link: "https://www.tipspls.com",
+      using: ["React", "Tailwind CSS"],
+      icon: "https://www.tipspls.com/favicon.ico",
+    },
+    {
       name: "BankFlows",
       description: "Unified bank exports on autopilot.",
       link: "https://www.bankflows.com",
