@@ -34,6 +34,13 @@ export const constants = {
 
   projects: [
     {
+      name: "MJML.AI",
+      description: "Create Beautiful Emails with MJML, assisted by AI.",
+      link: "https://www.mjml.ai",
+      using: ["React", "Tailwind CSS"],
+      icon: "https://www.mjml.ai/favicon.ico",
+    },
+    {
       name: "TipsPls",
       description: "QR code tipping for servers, freelancers, and street performers.",
       link: "https://www.tipspls.com",
