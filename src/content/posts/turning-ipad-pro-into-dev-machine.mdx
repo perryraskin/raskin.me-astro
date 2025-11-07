@@ -1,0 +1,45 @@
+---
+title: "Turning My iPad Pro Into a Real Dev Machine (Yes, It Actually Works)"
+date: November 6, 2025
+tags: [development, productivity, raspberry-pi, ai]
+description: How I built a full dev environment around my Raspberry Pi 5 that makes the iPad Pro feel like a real, portable dev machine
+---
+
+For years I treated my iPad like a sidekick. Notes, sketches, maybe a quick terminal session. But over the past few months I built a setup around my Raspberry Pi 5 that finally makes the iPad feel like a real, portable dev machine. No tricks. I've done full, productive sessions on it, including a few hours on a plane, and I hit zero blockers.
+
+## The Core Setup
+
+The brain of the operation is a Raspberry Pi 5 with 16GB RAM and an NVMe drive. It runs my full dev environment: Git repos, code servers, and test web servers, all hosted locally on the Pi. It's my personal cloud, tuned for speed and reliability.
+
+Here's what ties it together:
+- **Cloudflare Tunnels** for secure, automatic public access without opening ports.
+- **Tailscale** to create a private mesh network so my iPad can reach the Pi from anywhere as if it were on the same LAN.
+- **Claude Code** installed directly on the Pi, acting as my AI pair programmer. It writes and refactors code right in the terminal.
+- **Termius** on iPad for SSH access, key management, and Face ID login. The multi-tab interface feels natural for dev work.
+- **Git** on the Pi for commits, branching, and pushing to GitHub. The iPad doesn't need to touch the repo directly.
+
+## The iPad Experience
+
+My iPad Pro with a Magic Keyboard connects to the Pi through Termius over Tailscale. Once connected, it's just like sitting in front of a Linux workstation. The iPad only handles the interface; the Pi does all the computation.
+
+I can spin up Next.js apps, test APIs, and handle environment config entirely from the terminal. With Claude Code, I can describe what I want built or changed, and it generates the code inline. I review, tweak, and run it. The workflow feels surprisingly fluid.
+
+When I need to debug front-end issues, the Inspect app closes the gap. It gives me full desktop-class dev tools on iPad: Elements, Network, Console, and React debugging. I can see component hierarchies, inspect props, and verify state updates exactly like Chrome DevTools. It's the missing piece that turns the iPad from "SSH client" into "full web dev environment."
+
+## Working on a Plane
+
+During a recent flight I pulled out the iPad, connected to my Pi over Tailscale, and jumped into a live session. Claude Code wrote the bulk of the updates I needed for a Next.js project while I guided, debugged, and committed changes. I checked logs, verified builds, and even deployed a test instance through Cloudflare Tunnel — all midair.
+
+The connection held steady, latency was low enough to work smoothly, and the iPad battery barely moved. No cables, no adapters, no juggling between devices. Just the iPad and the Pi quietly working in sync.
+
+## Why It Works
+
+The separation is what makes it powerful. The Pi handles everything heavy — compiling, serving, AI code generation — while the iPad provides the perfect mobile interface. Tailscale and Cloudflare handle secure networking. Git keeps version control simple. Inspect adds proper browser debugging.
+
+It's efficient, low-maintenance, and works anywhere with a connection.
+
+## The Takeaway
+
+The iPad Pro can absolutely be a real dev machine, but not by pretending to replace a desktop. It becomes one when paired with a Raspberry Pi that does the work behind the scenes. Claude Code writes code on demand, Termius and Tailscale keep the workflow seamless, and Inspect bridges the last gap for front-end debugging.
+
+I used this setup to guide AI-generated code, test it, and ship it — all while cruising at 30,000 feet. That's when it stopped being an experiment and became my actual workflow.
